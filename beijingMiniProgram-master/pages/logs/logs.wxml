@@ -1,0 +1,30 @@
+<!--logs.wxml-->
+<view class="container log-list">
+<loading class="loading" hidden="{{loading}}">正在请求</loading>
+  <view class="dayBox">
+    <view wx:for="{{dayBox}}" wx:for-item="i" wx:key="{{i.date}}" class="dayBoxOne">
+      <view  data-index="{{index}}" class="dayBoxOneOne lastOrNo{{index-dayBox.length+1}}  dayClick{{index-dataIndex}}" bindtap="developFold">
+      <view class="dayBoxOneSpan"></view>
+        <view class="dayBoxOneDay">
+          <view class="dayBoxOneDayDate">{{i.date}}</view>
+          <view class="dayBoxOneDayWeek">{{i.week}}</view>
+        </view>
+        <view class="dayBoxOneAm {{i.amImage}}"></view>
+        <view class="dayBoxOneAmBottom"></view>
+        <view class="dayBoxOneLine"></view>
+        <view class="dayBoxOnePm {{i.pmImage}}"></view>
+        <view class="dayBoxOneWeather">{{i.weather}}  {{i.temp}}  {{i.wind}}</view>
+        <view class="qs-bottom"></view>
+      </view>
+      <view class="hourBox hourBox{{hourBox[index][hourBox[index].length-1]['length']}}"  wx:if="{{hourBox[index].length > 0 &&index - dataIndex === 0}}">
+        <view class="hourBoxOne" wx:for="{{hourBox[index]}}" wx:for-item="j" wx:key="{{j.time}}">
+          <view class="hourBoxOneTime">{{j.time}}</view>
+          <view class="hourBoxOneImg {{j.image}}"></view>
+          <view class="hourBoxOneWeather">{{j.weather}}</view>
+          <view class="hourBoxOneTemp">{{j.temp}}</view>
+          <view class="hourBoxOneWind">{{j.wind}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,87 @@
+.log-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-size: 28rpx;
+}
+.sliderBox{
+  width: 100%;
+  height: 360px;
+  border-bottom: 1rpx solid #b1b1b1;
+}
+.alermTitle{
+  /* width: 680rpx; */
+  height: 316rpx;
+  margin: 0 48rpx;
+  border-bottom: 2rpx solid #e5e5e5;
+}
+.alermTitleImg{
+  text-align: center
+}
+.alermTitleImgLogo {
+  width: 128rpx;
+  height: 108rpx;
+  padding: 64rpx 0
+}
+.alermTitleTitle{
+  width: 680rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  font-size: 30rpx;
+  text-align: center;
+  color: #545454;
+}
+.alermTextBox{
+  width: 100%;
+  height: auto;
+  padding: 48rpx;
+  box-sizing: border-box;
+}
+.alermText{
+  width: 680rpx;
+  line-height: 38rpx;
+  font-size: 30rpx;
+  color: #545454;
+  margin-bottom: 30rpx;
+}
+.alermTime{
+  width: 680rpx;
+  height: 24rpx;
+  color: #bfbfbf;
+  font-size: 24rpx;
+  line-height: 24rpx;
+}
+
+.scrollBoxVertical {}
+.subAlertItem {
+  padding: 48rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #b1b1b1;
+  text-align: left;
+}
+.subAlertType {
+  display: inline-block;
+  height: 108rpx;
+  line-height: 108rpx;
+  font-size: 16px;
+}
+.subAlertTitleImg {
+  float: right;
+}
+.subAlermTitleImgLogo {
+  width: 128rpx;
+  height: 108rpx;
+}
+.subAlertContent {
+  line-height: 18px;
+  font-size: 14px;
+  color: #b1b1b1;
+  margin-top: 8px;
+}
+.subAlertPublish {
+  padding-top: 12px;
+  color: #b1b1b1;
+  font-size: 12px;
+}

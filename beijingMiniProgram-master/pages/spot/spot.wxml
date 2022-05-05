@@ -1,0 +1,21 @@
+<!--logs.wxml-->
+<view class="container log-list">
+  <loading class="loading" hidden="{{loading}}">正在请求</loading>
+  <input class="inputPosition" bindinput="inputChange" placeholder="请输入想要查找的景区" value="{{inputVal}}"/>
+  <view class="myPosition" bindtap="returnMyPosition">
+    <span class="myPositionLogo qs-area"></span>
+    <text class="myPositionText">我的位置</text>
+  </view>
+  <view class="countryPosition" wx:if="{{country}}">
+      <view class="countryBox countryName" wx:for="{{country}}" wx:for-item="i"  wx:key="{{i.id}}" data-id="{{i.id}}" data-index="{{index}}" data-lon="{{i.lon}}" data-lat="{{i.lat}}" bindtap="noEvent">{{i.name}}</view>
+  </view>
+  <view class="givCountryPosition" wx:if="{{giveCountryObj}}">
+    <text class="givCountryPositionText">推荐景点</text>
+    <view class="giveCountryBox" wx:for="{{giveCountryObj}}"  wx:for-item="i" wx:key="{{i.lon}}">
+      <view class="giveCountryName" data-id="{{i.id}}" data-index="{{index}}" data-lon="{{i.lon}}" data-lat="{{i.lat}}" bindtap="noEvent">
+        <view class="giveCountryNameImg" style="background: url({{i.pic}}) no-repeat;background-size:cover"></view>
+        <view class="giveCountryNameText">{{i.name}}</view>
+      </view>
+    </view>
+  </view>
+</view>

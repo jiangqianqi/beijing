@@ -1,0 +1,33 @@
+<!--logs.wxml-->
+<view class="container log-list">
+  <swiper class="sliderBox" indicator-dots="true" indicator-active-color="#32b1fa" duration="100">
+    <swiper-item class="sliderOne" wx:for="{{alerts}}" wx:for-item="i" wx:key="{{i.reporter}}">
+      <view class="alermTitle">
+        <view class="alermTitleImg">
+          <image src="{{i.logo}}" class="alermTitleImgLogo"></image>
+        </view>
+        <view class="alermTitleTitle">{{i.title}}</view>
+      </view>
+      <view class="alermTextBox">
+        <view class="alermText">{{i.content}}</view>
+        <view class="alermTime">{{i.reporter}} {{i.time}} 发布</view>
+      </view>
+    </swiper-item>
+  </swiper>
+  <scroll-view scroll-y class="scrollBoxVertical" vertical="true" style="height:{{subHeight}}px">
+    <view class="subAlertItem" wx:for="{{subAlerts}}" wx:for-item="i" wx:key="{{i.reporter}}">
+      <view class="subAlertTitle">
+        <view class="subAlertType" style="color:{{i.color}}">{{i.title}}</view>
+        <view class="subAlertTitleImg">
+          <image src="{{i.logo}}" class="subAlermTitleImgLogo"></image>
+        </view>
+      </view>
+      <view class="subAlertContent">
+        {{i.content}}
+      </view>
+      <view class="subAlertPublish">
+        {{i.reporter}} {{i.time}} 发布
+      </view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,93 @@
+<!--index.wxml-->
+<view class="container"  style="background: url({{htmlBgimage?htmlBgimage:'https://bjwx.91weather.com/bjapp/weather/1晴天.png'}}) no-repeat;background-size:cover">
+<loading class="loading" hidden="{{loading}}">正在请求</loading>
+    <view class="personArea">
+        <view class="personAreaName">
+            <view class="personAreaNameText"  bindtap="jumpEvent">
+                <span class="personAreaNameTextLogo qs-area">
+                </span> 
+                <div class="personAreaNameTextBox">
+                  <view class="personAreaNameTextCase" style="width:{{boxLength}}rpx;left:{{boxLeft}}rpx">
+                      <view class="personAreaNameTextVisi" style="width:{{visiLength}}rpx">{{logs}}</view>
+                      <view class="personAreaNameTextHidd">{{logs}}</view>               
+                  </view>
+                </div>
+            </view>
+            <view class="searchLogo qs-sousuo"   bindtap="jumpEvent"></view>
+            <view class="personAreaNameAlarm qs-alerm"  wx:if="{{alermLogo}}"  bindtap="jumpAlerm"> 
+            </view>
+            <view class="personAreaNameTime"> 
+              {{upDateTime}}
+            </view>
+        </view>
+        <view class="personAreaWeather">
+            <view class="personAreaWeatherTempText">
+                {{nowTemp}}
+            </view>
+            <view class="personAreaWeatherSU">
+                <view class="personAreaWeatherTempUnit">
+                    ℃
+                </view>
+                <!-- <view class="personAreaWeatherSun">
+                    {{nowWeather}}
+                </view> -->
+            </view>
+            <view class="personAreaWeatherItem">
+                <view class="personAreaWeatherItemLogo qs-zcf"></view>
+                <view class="personAreaWeatherItemText">{{nowWind}}</view>
+            </view>
+            <view class="personAreaWeatherItem">
+                <view class="personAreaWeatherItemLogo qs-shidu"></view>
+                <view class="personAreaWeatherItemText">{{nowRh}}</view>
+            </view>
+            <view class="personAreaWeatherItem">
+                <view class="personAreaWeatherItemLogo qs-yusan"></view>
+                <view class="personAreaWeatherItemText">{{nowRain}}</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="allElement">
+        <view class="otherElement">
+        <view wx:for="{{clothesElement}}" wx:key="{{item.text}}" class="otherElementIon{{index}}">
+            <span class="otherElementIonLogo {{item.logo}}"></span>
+            <span>{{item.text}}</span>
+        </view>
+        </view>
+        <view class="tempElement">
+            <view class="smallCircle"></view>
+            <view class="tempElementBox" catchtouchstart="cirleStart" catchtouchmove="cirleMove" catchtouchend="cirleEnd" >
+                <view wx:for="{{tempElement}}" wx:key="{{item.date}}" class="tempElementFirst background{{tempElement[index].add}} tempElementFirst{{index}}" style='top:{{circlePos[index][0]}}rpx;right:{{circlePos[index][1]}}rpx;'>
+                    <view class="tempElementInner">
+                      <view class="tempElementInfo">
+                        <view class="tempElementFirstWeather">
+                            {{item.temp}} {{item.wd}}
+                        </view>
+                        <view class="tempElementFirstWeatherLevel">
+                            {{item.wl}}
+                        </view>
+                      </view>
+                      <span class="tempElementFirstLogo {{item.logo}}"></span>
+                    </view>
+                    <view class="tempElementFirstWeatherTime">
+                      {{item.date}}
+                    </view>
+                </view>
+                <view class="tempElementBoxWeek">{{tempElement[3].week}}</view>        
+            </view>
+        </view>
+    </view>
+    <view class="featureForecast">
+        <view class="featureForecastTenButten" bindtap="jumpTen">
+            未来10天预报
+            <view class="featureForecastTenButtenLogo  qs-right"></view>
+        </view>
+        <scroll-view class="featureForecastList" scroll-x="true" style="width: 100%" scroll-left = "{{scrollLeft}}">
+          <view wx:for="{{featureFour}}" wx:key="{{item.date}}" data-index="{{index}}" class="featureForecastListOne{{index+1-featureFour.length}} featureForecastListOne"  bindtap="jumpTen">
+            <view class="featureForecastListOneDate">{{item.date}}</view>
+            <view class="featureForecastListOneLogo {{item.logo}}"></view>
+            <view class="featureForecastListOneTemp">{{item.temp}}</view>
+          </view>
+       </scroll-view>
+    </view>
+</view>
